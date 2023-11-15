@@ -14,6 +14,7 @@ const posts = [
     },
     content: [
       {
+        id: "content-1",
         type: "paragraph",
         content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
         culpa rem consequuntur aliquam voluptate ipsam odit velit, quia illo,
@@ -21,13 +22,14 @@ const posts = [
         fugit vero!`,
       },
       {
+        id: "content-2",
         type: "paragraph",
         content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
         culpa rem consequuntur aliquam voluptate ipsam odit velit, quia illo,
         quos rerum temporibus nemo voluptates quas soluta consectetur amet,
         fugit vero!`,
       },
-      { type: "link", content: `Any text link` },
+      { id: "link-1", type: "link", content: `Any text link` },
     ],
     publishedAt: new Date("2023-11-10 20:00:00"),
   },
@@ -40,6 +42,7 @@ const posts = [
     },
     content: [
       {
+        id: "content-3",
         type: "paragraph",
         content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
         culpa rem consequuntur aliquam voluptate ipsam odit velit, quia illo,
@@ -47,13 +50,14 @@ const posts = [
         fugit vero!`,
       },
       {
+        id: "content-4",
         type: "paragraph",
         content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
         culpa rem consequuntur aliquam voluptate ipsam odit velit, quia illo,
         quos rerum temporibus nemo voluptates quas soluta consectetur amet,
         fugit vero!`,
       },
-      { type: "link", content: `Any text link` },
+      { id: "link-2", type: "link", content: `Any text link` },
     ],
     publishedAt: new Date("2023-11-11 20:00:00"),
   },
@@ -66,12 +70,13 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          {posts.map(post => {
+          {posts.map((post) => {
             return (
-              <Post 
-              author={post.author}
-              content={post.content}
-              publishedAt={post.publishedAt}
+              <Post
+                key={post.id}
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
               />
             );
           })}
