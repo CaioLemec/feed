@@ -4,6 +4,61 @@ import { Post } from "./components/Post";
 import "./global.css";
 import styles from "./App.module.css";
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarURL: "https://github.com/CaioLemec.png",
+      name: "Caio Lemec",
+      role: "Web Developer",
+    },
+    content: [
+      {
+        type: "paragraph",
+        content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
+        culpa rem consequuntur aliquam voluptate ipsam odit velit, quia illo,
+        quos rerum temporibus nemo voluptates quas soluta consectetur amet,
+        fugit vero!`,
+      },
+      {
+        type: "paragraph",
+        content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
+        culpa rem consequuntur aliquam voluptate ipsam odit velit, quia illo,
+        quos rerum temporibus nemo voluptates quas soluta consectetur amet,
+        fugit vero!`,
+      },
+      { type: "link", content: `Any text link` },
+    ],
+    publishedAt: new Date("2023-11-10 20:00:00"),
+  },
+  {
+    id: 2,
+    author: {
+      avatarURL: "https://github.com/maykbrito.png",
+      name: "Mayk Brito",
+      role: "Sênior Web Developer",
+    },
+    content: [
+      {
+        type: "paragraph",
+        content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
+        culpa rem consequuntur aliquam voluptate ipsam odit velit, quia illo,
+        quos rerum temporibus nemo voluptates quas soluta consectetur amet,
+        fugit vero!`,
+      },
+      {
+        type: "paragraph",
+        content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
+        culpa rem consequuntur aliquam voluptate ipsam odit velit, quia illo,
+        quos rerum temporibus nemo voluptates quas soluta consectetur amet,
+        fugit vero!`,
+      },
+      { type: "link", content: `Any text link` },
+    ],
+    publishedAt: new Date("2023-11-11 20:00:00"),
+  },
+];
+
 export function App() {
   return (
     <>
@@ -11,8 +66,15 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post />
-          <Post />
+          {posts.map(post => {
+            return (
+              <Post 
+              author={post.author}
+              content={post.content}
+              publishedAt={post.publishedAt}
+              />
+            );
+          })}
         </main>
       </div>
     </>

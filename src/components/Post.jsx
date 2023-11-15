@@ -1,45 +1,46 @@
+import { format, formatDistanceToNow } from "date-fns";
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
-export function Post() {
+export function Post({ author, content, publishedAt }) {
+  const formattedPublishedDate = format(
+    publishedAt,
+    "LLLL d, yyyy 'at' hh:mm aa"
+  );
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    addSuffix: true,
+  });
+
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.author}>
-          <Avatar src="https://github.com/CaioLemec.png" />
+          <Avatar src={author.avatarURL} />
           <div className={styles.authorInfo}>
-            <strong>Caio Lemec</strong>
-            <span>Web Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
         <time
-          title="November 13, 2023, 10:55 AM"
-          dateTime="2023-11-13 09:55:00"
+          title={formattedPublishedDate}
+          dateTime={publishedAt.toISOString()}
         >
-          Published at 2 hour ago
+          {publishedDateRelativeToNow}
         </time>
       </header>
       <div className={styles.content}>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
-          culpa rem consequuntur aliquam voluptate ipsam odit velit, quia illo,
-          quos rerum temporibus nemo voluptates quas soluta consectetur amet,
-          fugit vero!
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur
-          totam, quidem officia molestias perferendis sint quas placeat dolores
-          provident eaque sequi rem, atque impedit necessitatibus. Culpa placeat
-          atque ad debitis!
-        </p>
-        <p>
-          <a href="">Any text link</a>{" "}
-        </p>
-        <p>
-          <a href="">#Example 1</a> <a href="">#Example 2</a>{" "}
-          <a href="">#Example 3</a>
-        </p>
+        {content.map((item) => {
+          if (item.type === "paragraph") {
+            return <p>{item.content}</p>;
+          } else if (item.type === "link") {
+            return (
+              <p>
+                <a href="#">{item.content}</a>
+              </p>
+            );
+          }
+        })}
       </div>
       <form className={styles.commentForm}>
         <strong>Leave your feedback</strong>
