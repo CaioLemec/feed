@@ -7,6 +7,7 @@ import { useState } from "react";
 export function Post({ author, content, publishedAt }) {
   const [comments, setComments] = useState(["any comment"]);
   const [newCommentText, setNewCommentText] = useState("");
+  
   const formattedPublishedDate = format(
     publishedAt,
     "LLLL d, yyyy 'at' hh:mm aa"
@@ -27,6 +28,8 @@ export function Post({ author, content, publishedAt }) {
     });
     setComments(commentsWithoutDeletedOne);
   }
+
+  const isNewCommentInputEmpty = newCommentText.length === 0
 
   return (
     <article className={styles.post}>
@@ -66,9 +69,10 @@ export function Post({ author, content, publishedAt }) {
             setNewCommentText(e.target.value);
           }}
           placeholder="Leave your feedback"
+          required
         />
         <footer>
-          <button type="submit">Publish</button>
+          <button disabled={isNewCommentInputEmpty} type="submit">Publish</button>
         </footer>
       </form>
       <div className={styles.commentList}>
