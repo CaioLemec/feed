@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="logotype" title="Feed" src=".src/assets/ignite-logo.svg" width="55%" />
+    <img alt="logotype" title="Feed" src="public/ignite-logo.svg" width="10%" />
 </h1>
 <br>
 <p align="center">
@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
- <img alt="mokcup" src="./public/images/mockup1.png" width="65%">
+ <img alt="mokcup" src="public/demo.gif" width="65%">
 </p>
 
 <br>
@@ -77,7 +77,7 @@ http://localhost:3000/
 
 ## :bookmark_tabs: License
 
-Licensed under MIT [LICENSE](./LICENSE.md).
+Licensed under [MIT LICENSE](./LICENSE).
 
 <hr>
 
