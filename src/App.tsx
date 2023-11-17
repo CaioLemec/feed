@@ -42,7 +42,7 @@ const posts = [
     },
     content: [
       {
-        id: "content-3",
+        id: "content-1",
         type: "paragraph",
         content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
         culpa rem consequuntur aliquam voluptate ipsam odit velit, quia illo,
@@ -50,14 +50,14 @@ const posts = [
         fugit vero!`,
       },
       {
-        id: "content-4",
+        id: "content-2",
         type: "paragraph",
         content: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
         culpa rem consequuntur aliquam voluptate ipsam odit velit, quia illo,
         quos rerum temporibus nemo voluptates quas soluta consectetur amet,
         fugit vero!`,
       },
-      { id: "link-2", type: "link", content: `Any text link` },
+      { id: "link-1", type: "link", content: `Any text link` },
     ],
     publishedAt: new Date("2023-11-11 20:00:00"),
   },

@@ -1,13 +1,31 @@
 import { format, formatDistanceToNow } from "date-fns";
+import { useState, FormEvent } from "react";
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
-import { useState } from "react";
 
-export function Post({ author, content, publishedAt }) {
+interface Author {
+  name: string;
+  role: string;
+  avatarURL: string;
+}
+
+interface Content {
+  id: string;
+  type: "paragraph" | "link" | string;
+  content: string;
+}
+
+interface PostProps {
+  author: Author;
+  content: Content[];
+  publishedAt: Date;
+}
+
+export function Post({ author, content, publishedAt }: PostProps) {
   const [comments, setComments] = useState(["any comment"]);
   const [newCommentText, setNewCommentText] = useState("");
-  
+
   const formattedPublishedDate = format(
     publishedAt,
     "LLLL d, yyyy 'at' hh:mm aa"
@@ -16,20 +34,20 @@ export function Post({ author, content, publishedAt }) {
     addSuffix: true,
   });
 
-  function handleCreateNewComment() {
+  function handleCreateNewComment(event: FormEvent) {
     event.preventDefault();
     setComments([...comments, newCommentText]);
     setNewCommentText("");
   }
 
-  function deleteComment(commentToDelete) {
+  function deleteComment(commentToDelete: string) {
     const commentsWithoutDeletedOne = comments.filter((comment) => {
       return comment !== commentToDelete;
     });
     setComments(commentsWithoutDeletedOne);
   }
 
-  const isNewCommentInputEmpty = newCommentText.length === 0
+  const isNewCommentInputEmpty = newCommentText.length === 0;
 
   return (
     <article className={styles.post}>
@@ -72,7 +90,9 @@ export function Post({ author, content, publishedAt }) {
           required
         />
         <footer>
-          <button disabled={isNewCommentInputEmpty} type="submit">Publish</button>
+          <button disabled={isNewCommentInputEmpty} type="submit">
+            Publish
+          </button>
         </footer>
       </form>
       <div className={styles.commentList}>
