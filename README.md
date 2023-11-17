@@ -4,14 +4,13 @@
 <br>
 <p align="center">
   <a href="#desktop_computer-project"><img src="https://img.shields.io/static/v1?label=&message=Project&color=00b37e&style=for-the-badge&logo=React"/></a>&nbsp;
-  <a href="#nail_care-layout"><img src="https://img.shields.io/static/v1?label=&message=Layout&color=00b37e&style=for-the-badge&logo=CSS3"/></a>&nbsp;
   <a href="#technologist-technologies"><img src="https://img.shields.io/static/v1?label=&message=Technologies&color=00b37e&style=for-the-badge&logo=Jamstack"/></a>
   <a href="#octocat-environment"><img src="https://img.shields.io/static/v1?label=&message=Environment&color=00b37e&style=for-the-badge&logo=visual-studio-code"/></a>&nbsp;
   <a href="#bookmark_tabs-license"><img src="https://img.shields.io/static/v1?label=&message=License&color=00b37e&style=for-the-badge&logo=LibreOffice"/></a>&nbsp;
 </p>
 
 <p align="center">
- <img alt="mokcup" src="public/demo.gif" width="65%">
+ <img alt="demo" src="public/demo.gif" width="65%">
 </p>
 
 <br>
@@ -23,11 +22,6 @@ This is a project designed to reinforce concepts of the React. Through it, it wa
 
 Immutability, React hooks, declarative programming, React rendering flow, styling using CSS modules, and layout replication using Figma.
 >`Alert 1:` Due to some features in the styling, it is not recommended to use IE 6-8 as a browser when using this application. <br>
-
-## :nail_care: Layout
-<p align="center">
-<img src="./public/images/test.gif" width="75%"/>
-</p>
 
 <br>
 <hr>
